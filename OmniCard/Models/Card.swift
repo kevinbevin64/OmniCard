@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Card: Identifiable, Equatable {
+class Card: Identifiable, Hashable, Equatable {
     // The card number of the bank card (e.g. 1111 2222 3333 4444)
     var name: String
     var number: String
@@ -104,6 +104,10 @@ class Card: Identifiable, Equatable {
     
     static func == (lhs: Card, rhs: Card) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 
