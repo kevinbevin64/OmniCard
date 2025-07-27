@@ -29,6 +29,7 @@ struct AddCardView: View {
              
                 // Card number
                 TextField("Card Number", text: $number)
+                    .keyboardType(.numberPad)
                     .textFieldStyle(.roundedBorder)
                     .fontDesign(.monospaced)
                 

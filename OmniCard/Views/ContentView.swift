@@ -13,14 +13,15 @@ struct ContentView: View {
     @Query(sort: \Card.dateAdded, order: .forward) var cards: [Card]
     
     @State private var showingAddCardSheet: Bool = false
-    @State var selectedCard: Card?
+    @State var selectedCards: Set<Card> = []
+    @State var allowMultipleCardDetailsDisplayed: Bool = false
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(cards) { card in
                     cardListItem(card)
-                        .animation(.easeInOut(duration: 0.15), value: selectedCard)
+                        .animation(.easeInOut(duration: 0.15), value: selectedCards)
                         .contentShape(Rectangle()) // Expands clickable area
                         .onTapGesture { onTap(of: card) }
                 }
@@ -28,6 +29,7 @@ struct ContentView: View {
             }
             .navigationTitle("Cards")
             .toolbar {
+                moreOptionsButton
                 newCardButton
             }
             .sheet(isPresented: $showingAddCardSheet) {
@@ -79,7 +81,7 @@ struct ContentView: View {
     
     // Show all the card's numbers if it is selected; otherwise, show the last 4.
     func cardNumberFor(_ card: Card) -> String {
-        if let selectedCard, card == selectedCard {
+        if selectedCards.contains(card) {
             var _number: String = ""
             for i in 0..<card.number.count {
                 let index = card.number.index(card.number.startIndex, offsetBy: i)
@@ -95,7 +97,7 @@ struct ContentView: View {
     }
     
     func expirationDateFor(_ card: Card) -> String {
-        if let selectedCard, card == selectedCard {
+        if selectedCards.contains(card) {
             return card.expirationMonth + "/" + card.expirationYear
         } else {
             return "MM/YY"
@@ -103,7 +105,7 @@ struct ContentView: View {
     }
     
     func securityCodeFor(_ card: Card) -> String {
-        if let selectedCard, card == selectedCard {
+        if selectedCards.contains(card) {
             return card.securityCode
         } else {
             return "CVV"
@@ -111,14 +113,19 @@ struct ContentView: View {
     }
     
     func onTap(of card: Card) {
-        if let selectedCard {
-            if card == selectedCard {
-                self.selectedCard = nil
+        if allowMultipleCardDetailsDisplayed {
+            if selectedCards.contains(card) {
+                selectedCards.remove(card)
             } else {
-                self.selectedCard = card
+                selectedCards.insert(card)
             }
         } else {
-            self.selectedCard = card
+            if selectedCards.contains(card) {
+                selectedCards.removeAll()
+            } else {
+                selectedCards.removeAll()
+                selectedCards.insert(card)
+            }
         }
     }
     
@@ -130,8 +137,27 @@ struct ContentView: View {
         }
     }
     
+    var moreOptionsButton: some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading) {
+            Menu("More options", systemImage: "ellipsis.circle") {
+                Button {
+                    allowMultipleCardDetailsDisplayed.toggle()
+                    selectedCards.removeAll()
+                } label: {
+                    HStack {
+                        Text("Allow multi-display")
+                        if allowMultipleCardDetailsDisplayed {
+                            Image(systemName: "checkmark")
+                        }
+                    }
+                }
+            }
+            .menuStyle(.button)
+        }
+    }
+    
     func deleteCards(at offsets: IndexSet) {
-        selectedCard = nil
+        selectedCards.removeAll()
         let cardsToDelete = offsets.map { cards[$0] }
         for card in cardsToDelete {
             context.delete(card)
