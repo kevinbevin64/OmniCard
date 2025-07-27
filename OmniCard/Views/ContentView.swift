@@ -158,6 +158,8 @@ struct ContentView: View {
     
     func deleteCards(at offsets: IndexSet) {
         selectedCards.removeAll()
+        
+        // Get the cards before removing them to ensure we're grabbing the correct cards
         let cardsToDelete = offsets.map { cards[$0] }
         for card in cardsToDelete {
             context.delete(card)
