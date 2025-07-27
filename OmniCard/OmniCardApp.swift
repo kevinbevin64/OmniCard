@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct OmniCardApp: App {
@@ -13,5 +14,6 @@ struct OmniCardApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Card.self)
     }
 }
