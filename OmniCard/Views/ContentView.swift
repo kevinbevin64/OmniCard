@@ -27,6 +27,7 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteCards)
             }
+            .overlay { if cards.isEmpty { addCardPrompt } }
             .navigationTitle("Cards")
             .toolbar {
                 moreOptionsButton
@@ -139,7 +140,15 @@ struct ContentView: View {
     
     var moreOptionsButton: some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
-            Menu("More options", systemImage: "ellipsis.circle") {
+            let buttonIconName: String = {
+                if #available(iOS 26, *) {
+                    return "ellipsis"
+                } else {
+                    return "ellipsis.circle"
+                }
+            }()
+            
+            Menu("More options", systemImage: buttonIconName) {
                 Button {
                     allowMultipleCardDetailsDisplayed.toggle()
                     selectedCards.removeAll()
@@ -154,6 +163,17 @@ struct ContentView: View {
             }
             .menuStyle(.button)
         }
+    }
+    
+    var addCardPrompt: some View {
+        VStack(alignment: .center, spacing: 8) {
+            Image(systemName: "creditcard.and.123")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100)
+            Text("Create a card to get started.")
+        }
+        .foregroundStyle(.gray)
     }
     
     func deleteCards(at offsets: IndexSet) {
