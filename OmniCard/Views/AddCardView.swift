@@ -21,19 +21,40 @@ struct AddCardView: View {
     @State var securityCode: String = ""
     
     var body: some View {
-        VStack {
-            TextField("Name", text: $name)
-            TextField("Card Number", text: $number)
-            
-            HStack {
-                TextField("Month", text: $expirationMonth)
-                Text("/")
-                TextField("Year", text: $expirationYear)
+        VStack(spacing: 24) {
+            VStack(spacing: 16) {
+                // Name
+                TextField("Name", text: $name)
+                    .textFieldStyle(.roundedBorder)
+             
+                // Card number
+                TextField("Card Number", text: $number)
+                    .textFieldStyle(.roundedBorder)
+                    .fontDesign(.monospaced)
+                
+                HStack(spacing: 12) {
+                    // Expiration date
+                    HStack(spacing: 1) {
+                        TextField("Month", text: $expirationMonth)
+                            .keyboardType(.numberPad)
+                            .textFieldStyle(.roundedBorder)
+                            .fontDesign(.monospaced)
+                        
+                        Text("/")
+                        
+                        TextField("Year", text: $expirationYear)
+                            .keyboardType(.numberPad)
+                            .textFieldStyle(.roundedBorder)
+                            .fontDesign(.monospaced)
+                    }
+                    
+                    // Security code
+                    TextField("CVV", text: $securityCode)
+                        .keyboardType(.numberPad)
+                        .textFieldStyle(.roundedBorder)
+                        .fontDesign(.monospaced)
+                }
             }
-            
-            TextField("Security Code", text: $securityCode)
-            
-            Divider()
             
             Button("Done", systemImage: "checkmark") {
                 if let newCard = Card(

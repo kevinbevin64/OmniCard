@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Card: Identifiable {
+class Card: Identifiable, Equatable {
     // The card number of the bank card (e.g. 1111 2222 3333 4444)
     var name: String
     var number: String
@@ -100,6 +100,10 @@ class Card: Identifiable {
         if str.count > length {
             throw CardError.invalidLengthError
         }
+    }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
