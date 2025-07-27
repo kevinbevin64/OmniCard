@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0A79DE082E36CB0A0049327D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A79DE072E36CB0A0049327D /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		0A41124E2E3690F500C25B5B /* OmniCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A79DE072E36CB0A0049327D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +37,7 @@
 		0A4112452E3690F500C25B5B = {
 			isa = PBXGroup;
 			children = (
+				0A79DE072E36CB0A0049327D /* README.md */,
 				0A4112502E3690F500C25B5B /* OmniCard */,
 				0A41124F2E3690F500C25B5B /* Products */,
 			);
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A79DE082E36CB0A0049327D /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
