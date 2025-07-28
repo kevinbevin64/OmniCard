@@ -66,6 +66,7 @@ struct AddCardView: View {
                     securityCode: securityCode
                 ) {
                     context.insert(newCard)
+                    print("AddCardView.swift: payment network is \(newCard.paymentNetwork)")
                     dismiss()
                 } else {
                     showingInvalidInputAlert = true

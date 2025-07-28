@@ -42,11 +42,13 @@ struct ContentView: View {
     
     func cardListItem(_ card: Card) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Card name
-            Text(card.name)
-                .font(.title3)
-                .fontWeight(.semibold)
-                .fontDesign(.rounded)
+            HStack(alignment: .top) {
+                // Card name
+                Text(card.name)
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .fontDesign(.rounded)
+            }
             
             HStack(alignment: .bottom, spacing: 12) {
                 // Card number
@@ -75,7 +77,7 @@ struct ContentView: View {
                 top: 10,
                 leading: 16,
                 bottom: 10,
-                trailing: 16
+                trailing: 10
             )
         )
     }

@@ -10,13 +10,16 @@ import SwiftData
 
 @Model
 class Card: Identifiable, Hashable, Equatable {
-    // The card number of the bank card (e.g. 1111 2222 3333 4444)
     var name: String
-    var number: String
+    var number: String // The card number of the bank card (e.g. 1111 2222 3333 4444)
     var expirationMonth: String
     var expirationYear: String
     var securityCode: String
-    var dateAdded: Date // Used for sorting SwiftData objects 
+    var dateAdded: Date // Used for sorting SwiftData objects
+    
+    var paymentNetwork: PaymentNetwork {
+        CardNetworkResolver.paymentNetwork(from: number)
+    }
     
     init?(
         name: String,
