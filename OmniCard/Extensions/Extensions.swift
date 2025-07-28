@@ -14,7 +14,7 @@ extension String {
     /// characters. 
     func compactNumeric() throws -> String {
         // Remove all whitespace
-        var cleaned: String = self.filter { !$0.isWhitespace }
+        let cleaned: String = self.filter { !$0.isWhitespace }
         
         // Validate that all characters are digits
         for char in cleaned {

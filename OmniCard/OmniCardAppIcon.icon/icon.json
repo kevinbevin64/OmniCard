@@ -1,0 +1,138 @@
+{
+  "fill-specializations" : [
+    {
+      "value" : "automatic"
+    },
+    {
+      "appearance" : "dark",
+      "value" : "automatic"
+    }
+  ],
+  "groups" : [
+    {
+      "blur-material" : 0.32,
+      "hidden" : false,
+      "layers" : [
+        {
+          "fill" : {
+            "solid" : "display-p3:0.91504,0.90576,0.96680,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "batch_Top Card Strip.svg",
+          "name" : "batch_Top Card Strip",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0,
+              130
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "solid" : "display-p3:0.40851,0.50928,0.88062,1.00000"
+          },
+          "image-name" : "batch_Top Card.svg",
+          "name" : "batch_Top Card"
+        }
+      ],
+      "lighting" : "combined",
+      "name" : "Top Strip",
+      "position" : {
+        "scale" : 0.92,
+        "translation-in-points" : [
+          0,
+          34
+        ]
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.47
+      }
+    },
+    {
+      "blur-material" : 0.5,
+      "hidden" : false,
+      "layers" : [
+        {
+          "fill" : {
+            "solid" : "display-p3:0.52368,0.70020,0.88940,1.00000"
+          },
+          "image-name" : "batch_Middle Card.svg",
+          "name" : "batch_Middle Card"
+        }
+      ],
+      "name" : "Middle Card",
+      "position" : {
+        "scale" : 0.92,
+        "translation-in-points" : [
+          0,
+          -17
+        ]
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.4
+      }
+    },
+    {
+      "hidden" : false,
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "display-p3:0.81274,0.82704,0.93933,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "display-p3:0.91547,0.84961,0.94763,1.00000"
+              }
+            }
+          ],
+          "image-name" : "batch_Back Card.svg",
+          "name" : "batch_Back Card",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0,
+              -58
+            ]
+          }
+        }
+      ],
+      "name" : "Top Strip",
+      "position" : {
+        "scale" : 0.92,
+        "translation-in-points" : [
+          0,
+          -12
+        ]
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
