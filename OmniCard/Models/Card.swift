@@ -41,7 +41,7 @@ class Card: Identifiable, Hashable, Equatable {
         }
     }
     
-    // Removes any whitespace from the string and verifies that the number contains exactly 16 digits
+    // Removes any whitespace from the string and verifies that the number contains only digits and is non-empty
     static func validatedCardNumber(_ number: String) throws -> String {
         // Remove whitespaces
         let filteredNumber = number.filter { !$0.isWhitespace }
@@ -49,8 +49,8 @@ class Card: Identifiable, Hashable, Equatable {
         // Check that all characters are digits
         try enforceAllAreDigits(in: filteredNumber)
         
-        // Verify that there are 16 digits
-        try enforceLength(of: filteredNumber, equals: 16)
+        // Verify that the number is not empty
+        try enforceLength(of: filteredNumber, isAtLeast: 1)
         
         return filteredNumber
     }
@@ -101,6 +101,13 @@ class Card: Identifiable, Hashable, Equatable {
     // Throws invalidLengthError
     static func enforceLength(of str: String, isAtMost length: Int) throws {
         if str.count > length {
+            throw CardError.invalidLengthError
+        }
+    }
+    
+    // Throws invalidLengthError
+    static func enforceLength(of str: String, isAtLeast length: Int) throws {
+        if str.count < length {
             throw CardError.invalidLengthError
         }
     }
