@@ -14,6 +14,7 @@ struct AddCardView: View {
     
     @State var showingInvalidInputAlert: Bool = false
     
+    @State var nickname: String = ""
     @State var name: String = ""
     @State var number: String = ""
     @State var expirationMonth: String = ""
@@ -50,9 +51,8 @@ struct AddCardView: View {
     
     var headerSection: some View {
         VStack(spacing: 8) {
-            Image(systemName: "creditcard.fill")
+            Image(systemName: "creditcard.and.123")
                 .font(.system(size: 48))
-                .foregroundStyle(.white)
             
             Text("Add New Card")
                 .font(.title2)
@@ -63,17 +63,30 @@ struct AddCardView: View {
                 .font(.subheadline)
                 .foregroundColor(.secondary)
         }
-        .padding(.top, 50)
+        .padding(.top, 32)
     }
     
-    // Contains name, card number, expiration, and security code.
+    // Contains nickname, name, card number, expiration, and security code.
     var formFieldsSection: some View {
         VStack(spacing: 20) {
+            cardNicknameSection
             cardholderNameSection
             cardNumberSection
             expirationAndCVVSection
         }
         .padding(.horizontal, 24)
+    }
+    
+    var cardNicknameSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Card Nickname")
+                .font(.headline)
+                .foregroundColor(.primary)
+            
+            TextField("e.g. My Favorite Credit Card", text: $nickname)
+                .textFieldStyle(CapsuleTextFieldStyle())
+                .font(.body)
+        }
     }
     
     var cardholderNameSection: some View {
@@ -97,7 +110,8 @@ struct AddCardView: View {
             TextField("1234 5678 9012 3456", text: $number)
                 .keyboardType(.numberPad)
                 .textFieldStyle(CapsuleTextFieldStyle())
-                .font(.system(.body, design: .monospaced))
+                .font(.body)
+                .fontDesign(.monospaced)
         }
     }
     
@@ -118,7 +132,8 @@ struct AddCardView: View {
                 TextField("MM", text: $expirationMonth)
                     .keyboardType(.numberPad)
                     .textFieldStyle(CapsuleTextFieldStyle())
-                    .font(.system(.body, design: .monospaced))
+                    .font(.body)
+                    .fontDesign(.monospaced)
                     .frame(maxWidth: .infinity)
                 
                 Text("/")
@@ -129,7 +144,8 @@ struct AddCardView: View {
                 TextField("YY", text: $expirationYear)
                     .keyboardType(.numberPad)
                     .textFieldStyle(CapsuleTextFieldStyle())
-                    .font(.system(.body, design: .monospaced))
+                    .font(.body)
+                    .fontDesign(.monospaced)
                     .frame(maxWidth: .infinity)
             }
         }
@@ -144,13 +160,15 @@ struct AddCardView: View {
             TextField("123", text: $securityCode)
                 .keyboardType(.numberPad)
                 .textFieldStyle(CapsuleTextFieldStyle())
-                .font(.system(.body, design: .monospaced))
+                .font(.body)
+                .fontDesign(.monospaced)
         }
     }
     
     var addCardButton: some View {
         Button {
             if let newCard = Card(
+                nickname: nickname,
                 name: name,
                 number: number,
                 expirationMonth: expirationMonth,

@@ -10,6 +10,8 @@ import SwiftData
 
 @Model
 class Card: Identifiable, Hashable, Equatable {
+    var id: UUID
+    var nickname: String // A user-friendly name for the card (e.g. "Bank of America Travel Credit Card")
     var name: String
     var number: String // The card number of the bank card (e.g. 1111 2222 3333 4444)
     var expirationMonth: String
@@ -22,6 +24,8 @@ class Card: Identifiable, Hashable, Equatable {
     }
     
     init?(
+        id: UUID = UUID(),
+        nickname: String,
         name: String,
         number: String,
         expirationMonth: String,
@@ -30,7 +34,9 @@ class Card: Identifiable, Hashable, Equatable {
         dateAdded: Date = Date()
     ) {
         do {
-            self.name = name
+            self.id = id
+            self.nickname = nickname.trimmingCharacters(in: .whitespacesAndNewlines)
+            self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
             self.number = try Card.validatedCardNumber(number)
             self.expirationMonth = try Card.validatedExpirationMonth(expirationMonth)
             self.expirationYear = try Card.validatedExpirationYear(expirationYear)
@@ -78,7 +84,10 @@ class Card: Identifiable, Hashable, Equatable {
     // Verifies that the length is 3 and that all characters are digits
     static func validatedSecurityCode(_ code: String) throws -> String {
         try enforceAllAreDigits(in: code) // Check that all are digits
-        try enforceLength(of: code, equals: 3)
+        
+        // Allow either 3 or 4 digit security codes
+        try enforceLength(of: code, isAtLeast: 3)
+        try enforceLength(of: code, isAtMost: 4)
         return code
     }
     

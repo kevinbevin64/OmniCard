@@ -41,15 +41,19 @@ struct ContentView: View {
     }
     
     func cardListItem(_ card: Card) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(alignment: .top) {
-                // Card name
-                Text(card.name)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .fontDesign(.rounded)
-            }
+        VStack(alignment: .leading, spacing: 5) {
+            // Card nickname
+            Text(card.nickname)
+                .font(.title2)
+                .fontWeight(.semibold)
+                .fontDesign(.rounded)
             
+            // Cardholder's name
+            Text(cardNameFor(card))
+                .font(.body)
+                .fontWeight(.medium)
+                .fontDesign(.monospaced)
+
             HStack(alignment: .bottom, spacing: 12) {
                 // Card number
                 Text(cardNumberFor(card))
@@ -80,6 +84,22 @@ struct ContentView: View {
                 trailing: 10
             )
         )
+    }
+    
+    func cardNameFor(_ card: Card) -> String {
+        if selectedCards.contains(card) {
+            return card.name
+        } else {
+            var _name: String = ""
+            for char in card.name {
+                if char.isLetter || char.isNumber {
+                    _name.append("*")
+                } else {
+                    _name.append(char)
+                }
+            }
+            return _name
+        }
     }
     
     // Show all the card's numbers if it is selected; otherwise, show the last 4.
