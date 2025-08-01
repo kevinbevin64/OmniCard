@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0A79DE082E36CB0A0049327D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A79DE072E36CB0A0049327D /* README.md */; };
+		0A98FF8C2E3D8B27002E978D /* PRIVACY.md in Resources */ = {isa = PBXBuildFile; fileRef = 0A98FF8B2E3D8B27002E978D /* PRIVACY.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A41124E2E3690F500C25B5B /* Diji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diji.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A41124E2E3690F500C25B5B /* Bit Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bit Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A79DE072E36CB0A0049327D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0A98FF8B2E3D8B27002E978D /* PRIVACY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0A4112502E3690F500C25B5B /* Diji */ = {
+		0A4112502E3690F500C25B5B /* Cardlet */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Diji;
+			path = Cardlet;
 			sourceTree = "<group>";
 		};
 		0A83D4862E3D431D00A0B024 /* Docs */ = {
@@ -42,9 +44,10 @@
 		0A4112452E3690F500C25B5B = {
 			isa = PBXGroup;
 			children = (
+				0A98FF8B2E3D8B27002E978D /* PRIVACY.md */,
 				0A83D4862E3D431D00A0B024 /* Docs */,
 				0A79DE072E36CB0A0049327D /* README.md */,
-				0A4112502E3690F500C25B5B /* Diji */,
+				0A4112502E3690F500C25B5B /* Cardlet */,
 				0A41124F2E3690F500C25B5B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,7 +55,7 @@
 		0A41124F2E3690F500C25B5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A41124E2E3690F500C25B5B /* Diji.app */,
+				0A41124E2E3690F500C25B5B /* Bit Card.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,9 +63,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A41124D2E3690F500C25B5B /* Diji */ = {
+		0A41124D2E3690F500C25B5B /* Bit Card */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A4112592E3690F600C25B5B /* Build configuration list for PBXNativeTarget "Diji" */;
+			buildConfigurationList = 0A4112592E3690F600C25B5B /* Build configuration list for PBXNativeTarget "Bit Card" */;
 			buildPhases = (
 				0A41124A2E3690F500C25B5B /* Sources */,
 				0A41124B2E3690F500C25B5B /* Frameworks */,
@@ -73,14 +76,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				0A4112502E3690F500C25B5B /* Diji */,
+				0A4112502E3690F500C25B5B /* Cardlet */,
 				0A83D4862E3D431D00A0B024 /* Docs */,
 			);
-			name = Diji;
+			name = "Bit Card";
 			packageProductDependencies = (
 			);
 			productName = OmniCard;
-			productReference = 0A41124E2E3690F500C25B5B /* Diji.app */;
+			productReference = 0A41124E2E3690F500C25B5B /* Bit Card.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +101,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0A4112492E3690F500C25B5B /* Build configuration list for PBXProject "Diji" */;
+			buildConfigurationList = 0A4112492E3690F500C25B5B /* Build configuration list for PBXProject "Bit Card" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -112,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A41124D2E3690F500C25B5B /* Diji */,
+				0A41124D2E3690F500C25B5B /* Bit Card */,
 			);
 		};
 /* End PBXProject section */
@@ -123,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A79DE082E36CB0A0049327D /* README.md in Resources */,
+				0A98FF8C2E3D8B27002E978D /* PRIVACY.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +275,7 @@
 				DEVELOPMENT_TEAM = HF3UP84NP5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Diji;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bit Card";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -282,7 +286,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kevinchen.diji;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevinchen.bitcard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -305,7 +309,7 @@
 				DEVELOPMENT_TEAM = HF3UP84NP5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Diji;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bit Card";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,7 +320,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kevinchen.diji;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevinchen.bitcard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -331,7 +335,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A4112492E3690F500C25B5B /* Build configuration list for PBXProject "Diji" */ = {
+		0A4112492E3690F500C25B5B /* Build configuration list for PBXProject "Bit Card" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A4112572E3690F600C25B5B /* Debug */,
@@ -340,7 +344,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A4112592E3690F600C25B5B /* Build configuration list for PBXNativeTarget "Diji" */ = {
+		0A4112592E3690F600C25B5B /* Build configuration list for PBXNativeTarget "Bit Card" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A41125A2E3690F600C25B5B /* Debug */,
