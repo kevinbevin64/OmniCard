@@ -21,64 +21,190 @@ struct AddCardView: View {
     @State var securityCode: String = ""
     
     var body: some View {
-        VStack(spacing: 24) {
-            VStack(spacing: 16) {
-                // Name
-                TextField("Name", text: $name)
-                    .textFieldStyle(.roundedBorder)
-             
-                // Card number
-                TextField("Card Number", text: $number)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(.roundedBorder)
-                    .fontDesign(.monospaced)
-                
-                HStack(spacing: 12) {
-                    // Expiration date
-                    HStack(spacing: 1) {
-                        TextField("Month", text: $expirationMonth)
-                            .keyboardType(.numberPad)
-                            .textFieldStyle(.roundedBorder)
-                            .fontDesign(.monospaced)
-                        
-                        Text("/")
-                        
-                        TextField("Year", text: $expirationYear)
-                            .keyboardType(.numberPad)
-                            .textFieldStyle(.roundedBorder)
-                            .fontDesign(.monospaced)
+        NavigationStack {
+            ZStack {
+                ScrollView {
+                    VStack(spacing: 32) {
+                        headerSection
+                        formFieldsSection
+                        addCardButton
                     }
-                    
-                    // Security code
-                    TextField("CVV", text: $securityCode)
-                        .keyboardType(.numberPad)
-                        .textFieldStyle(.roundedBorder)
-                        .fontDesign(.monospaced)
                 }
             }
-            
-            Button("Done", systemImage: "checkmark") {
-                if let newCard = Card(
-                    name: name,
-                    number: number,
-                    expirationMonth: expirationMonth,
-                    expirationYear: expirationYear,
-                    securityCode: securityCode
-                ) {
-                    context.insert(newCard)
-                    print("AddCardView.swift: payment network is \(newCard.paymentNetwork)")
-                    dismiss()
-                } else {
-                    showingInvalidInputAlert = true
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Cancel")
+                            .foregroundStyle(Color.accentColor)
+                    }
+                    .buttonStyle(.plain)
                 }
-            }
-            .buttonStyle(.borderedProminent)
-        }
-        .padding()
-        .alert("Invalid input", isPresented: $showingInvalidInputAlert) {
-            Button("Ok", role: .cancel) {
-                showingInvalidInputAlert = false
             }
         }
     }
+    
+    // MARK: - Computed Properties
+    
+    var headerSection: some View {
+        VStack(spacing: 8) {
+            Image(systemName: "creditcard.fill")
+                .font(.system(size: 48))
+                .foregroundStyle(.white)
+            
+            Text("Add New Card")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.primary)
+            
+            Text("Enter your card details below")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+        .padding(.top, 50)
+    }
+    
+    // Contains name, card number, expiration, and security code.
+    var formFieldsSection: some View {
+        VStack(spacing: 20) {
+            cardholderNameSection
+            cardNumberSection
+            expirationAndCVVSection
+        }
+        .padding(.horizontal, 24)
+    }
+    
+    var cardholderNameSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Cardholder Name")
+                .font(.headline)
+                .foregroundColor(.primary)
+            
+            TextField("Enter cardholder name", text: $name)
+                .textFieldStyle(CapsuleTextFieldStyle())
+                .font(.body)
+        }
+    }
+    
+    var cardNumberSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Card Number")
+                .font(.headline)
+                .foregroundColor(.primary)
+            
+            TextField("1234 5678 9012 3456", text: $number)
+                .keyboardType(.numberPad)
+                .textFieldStyle(CapsuleTextFieldStyle())
+                .font(.system(.body, design: .monospaced))
+        }
+    }
+    
+    var expirationAndCVVSection: some View {
+        HStack(spacing: 16) {
+            expirationDateSection
+            securityCodeSection
+        }
+    }
+    
+    var expirationDateSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Expiration")
+                .font(.headline)
+                .foregroundColor(.primary)
+            
+            HStack(spacing: 8) {
+                TextField("MM", text: $expirationMonth)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(CapsuleTextFieldStyle())
+                    .font(.system(.body, design: .monospaced))
+                    .frame(maxWidth: .infinity)
+                
+                Text("/")
+                    .font(.title2)
+                    .foregroundColor(.secondary)
+                    .fontWeight(.medium)
+                
+                TextField("YY", text: $expirationYear)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(CapsuleTextFieldStyle())
+                    .font(.system(.body, design: .monospaced))
+                    .frame(maxWidth: .infinity)
+            }
+        }
+    }
+    
+    var securityCodeSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("CVV")
+                .font(.headline)
+                .foregroundColor(.primary)
+            
+            TextField("123", text: $securityCode)
+                .keyboardType(.numberPad)
+                .textFieldStyle(CapsuleTextFieldStyle())
+                .font(.system(.body, design: .monospaced))
+        }
+    }
+    
+    var addCardButton: some View {
+        Button {
+            if let newCard = Card(
+                name: name,
+                number: number,
+                expirationMonth: expirationMonth,
+                expirationYear: expirationYear,
+                securityCode: securityCode
+            ) {
+                context.insert(newCard)
+                print("AddCardView.swift: payment network is \(newCard.paymentNetwork)")
+                dismiss()
+            } else {
+                showingInvalidInputAlert = true
+            }
+        } label: {
+            HStack(spacing: 12) {
+                Text("Add Card")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                
+                Image(systemName: "plus")
+                    .font(.title2)
+            }
+            .foregroundColor(.white)
+        }
+        .padding(.leading, 22) // Allow extra space for the text for feeling of centeredness
+        .padding(.trailing, 16)
+        .padding(.vertical, 16)
+        .background(Color.blue, in: Capsule())
+        .alert("Invalid Input", isPresented: $showingInvalidInputAlert) {
+            Button("OK", role: .cancel) {
+                showingInvalidInputAlert = false
+            }
+        } message: {
+            Text("Please check your card details and try again.")
+        }
+    }
+}
+
+// Custom capsule text field style
+struct CapsuleTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(.horizontal, 20)
+            .padding(.vertical, 16)
+            .background(
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color(.systemGray6))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(Color(.systemGray4), lineWidth: 1)
+                    )
+            )
+    }
+}
+
+#Preview {
+    AddCardView()
 }
