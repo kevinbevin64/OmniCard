@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0A4112492E3690F500C25B5B /* Build configuration list for PBXProject "OmniCard" */;
+			buildConfigurationList = 0A4112492E3690F500C25B5B /* Build configuration list for PBXProject "Diji" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -331,7 +331,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A4112492E3690F500C25B5B /* Build configuration list for PBXProject "OmniCard" */ = {
+		0A4112492E3690F500C25B5B /* Build configuration list for PBXProject "Diji" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A4112572E3690F600C25B5B /* Debug */,
