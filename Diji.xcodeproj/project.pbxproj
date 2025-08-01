@@ -11,14 +11,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A41124E2E3690F500C25B5B /* OmniCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A41124E2E3690F500C25B5B /* Diji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A79DE072E36CB0A0049327D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0A4112502E3690F500C25B5B /* OmniCard */ = {
+		0A4112502E3690F500C25B5B /* Diji */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = OmniCard;
+			path = Diji;
 			sourceTree = "<group>";
 		};
 		0A83D4862E3D431D00A0B024 /* Docs */ = {
@@ -44,7 +44,7 @@
 			children = (
 				0A83D4862E3D431D00A0B024 /* Docs */,
 				0A79DE072E36CB0A0049327D /* README.md */,
-				0A4112502E3690F500C25B5B /* OmniCard */,
+				0A4112502E3690F500C25B5B /* Diji */,
 				0A41124F2E3690F500C25B5B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,7 +52,7 @@
 		0A41124F2E3690F500C25B5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A41124E2E3690F500C25B5B /* OmniCard.app */,
+				0A41124E2E3690F500C25B5B /* Diji.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,9 +60,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A41124D2E3690F500C25B5B /* OmniCard */ = {
+		0A41124D2E3690F500C25B5B /* Diji */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A4112592E3690F600C25B5B /* Build configuration list for PBXNativeTarget "OmniCard" */;
+			buildConfigurationList = 0A4112592E3690F600C25B5B /* Build configuration list for PBXNativeTarget "Diji" */;
 			buildPhases = (
 				0A41124A2E3690F500C25B5B /* Sources */,
 				0A41124B2E3690F500C25B5B /* Frameworks */,
@@ -73,14 +73,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				0A4112502E3690F500C25B5B /* OmniCard */,
+				0A4112502E3690F500C25B5B /* Diji */,
 				0A83D4862E3D431D00A0B024 /* Docs */,
 			);
-			name = OmniCard;
+			name = Diji;
 			packageProductDependencies = (
 			);
 			productName = OmniCard;
-			productReference = 0A41124E2E3690F500C25B5B /* OmniCard.app */;
+			productReference = 0A41124E2E3690F500C25B5B /* Diji.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A41124D2E3690F500C25B5B /* OmniCard */,
+				0A41124D2E3690F500C25B5B /* Diji */,
 			);
 		};
 /* End PBXProject section */
@@ -340,7 +340,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A4112592E3690F600C25B5B /* Build configuration list for PBXNativeTarget "OmniCard" */ = {
+		0A4112592E3690F600C25B5B /* Build configuration list for PBXNativeTarget "Diji" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A41125A2E3690F600C25B5B /* Debug */,
