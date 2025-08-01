@@ -35,7 +35,7 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingAddCardSheet) {
                 AddCardView()
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.large])
             }
         }
     }
