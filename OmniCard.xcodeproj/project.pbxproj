@@ -21,6 +21,11 @@
 			path = OmniCard;
 			sourceTree = "<group>";
 		};
+		0A83D4862E3D431D00A0B024 /* Docs */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Docs;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +42,7 @@
 		0A4112452E3690F500C25B5B = {
 			isa = PBXGroup;
 			children = (
+				0A83D4862E3D431D00A0B024 /* Docs */,
 				0A79DE072E36CB0A0049327D /* README.md */,
 				0A4112502E3690F500C25B5B /* OmniCard */,
 				0A41124F2E3690F500C25B5B /* Products */,
@@ -68,6 +74,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				0A4112502E3690F500C25B5B /* OmniCard */,
+				0A83D4862E3D431D00A0B024 /* Docs */,
 			);
 			name = OmniCard;
 			packageProductDependencies = (
