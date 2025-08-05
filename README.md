@@ -1,4 +1,4 @@
-# OmniCard
+# BitCard
 
 Access your bank card information anywhere. 
 
